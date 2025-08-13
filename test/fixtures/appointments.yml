@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scheduled_at: 2025-08-13 19:34:33
+  status: 1
+  notes: MyText
+  company: one
+  patient: one
+  dentist: one
+
+two:
+  scheduled_at: 2025-08-13 19:34:33
+  status: 1
+  notes: MyText
+  company: two
+  patient: two
+  dentist: two
