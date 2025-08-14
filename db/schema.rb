@@ -101,8 +101,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_14_122731) do
 
   add_foreign_key "abilities", "users"
   add_foreign_key "appointments", "companies"
-  add_foreign_key "appointments", "dentists"
   add_foreign_key "appointments", "patients"
+  add_foreign_key "appointments", "users", column: "dentist_id"
   add_foreign_key "invoice_items", "invoices"
   add_foreign_key "invoices", "companies"
   add_foreign_key "invoices", "patients"
