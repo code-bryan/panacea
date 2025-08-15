@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  address: MyString
-  phone: MyString
-  email: MyString
-  timezone: MyString
+  name: "Test Company"
+  address: "123 Main St"
+  phone: "555-5555"
+  email: "company@example.com"
+  timezone: "UTC"
 
 two:
   name: MyString
