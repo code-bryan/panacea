@@ -3,13 +3,7 @@ require "ostruct"
 
 class Auth::LoginUseCaseTest < ActiveSupport::TestCase
   test "returns success result when email and password are correct" do
-    user = User.create!(
-      first_name: "John",
-      last_name: "Doe",
-      email: "john@example.com",
-      password: "password123",
-      company: companies(:one) # Assuming you have a fixture or factory
-    )
+    user = users(:john)
 
     form = OpenStruct.new(email: "john@example.com", password: "password123")
     result = Auth::LoginUseCase.call(form)
