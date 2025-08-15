@@ -24,7 +24,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "POST create with invalid password re-renders form" do
     post login_path, params: { auth_login_form: { email: @user.email, password: "wrongpass" } }
 
-    assert_response :unprocessable_entity
+    assert_response :unprocessable_content
     assert_nil session[:user_id]
     assert_select "form"
     # assert_match /Invalid email or password/, response.body
@@ -33,7 +33,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "POST create with invalid email re-renders form" do
     post login_path, params: { auth_login_form: { email: "missing@example.com", password: "password123" } }
 
-    assert_response :unprocessable_entity
+    assert_response :unprocessable_content
     assert_nil session[:user_id]
     assert_select "form"
     # assert_match /Invalid email or password/, response.body
