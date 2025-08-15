@@ -1,12 +1,12 @@
 class Result
   attr_reader :data, :error
 
-  def initialize(data = nil, error)
+  def initialize(data: nil, error: nil)
     @data = data
     @error = error
   end
 
   def success?
-    not @data.nil?
+    @error.nil?
   end
 end
