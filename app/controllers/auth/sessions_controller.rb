@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Auth::SessionsController < ApplicationController
   def new
     @form = Auth::LoginForm.new
   end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    redirect_to login_path, notice: "Logged out!"
+    redirect_to auth_login_path, notice: "Logged out!"
   end
 
   private

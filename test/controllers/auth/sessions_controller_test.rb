@@ -6,13 +6,13 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "GET new renders login form" do
-    get login_path
+    get auth_root_path
     assert_response :success
     assert_select "form"
   end
 
   test "POST create with valid credentials logs in user" do
-    post login_path, params: { auth_login_form: { email: @user.email, password: "password123" } }
+    post auth_login_path, params: { auth_login_form: { email: @user.email, password: "password123" } }
 
     assert_redirected_to root_path
     assert_equal @user.id, session[:user_id]
@@ -22,7 +22,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "POST create with invalid password re-renders form" do
-    post login_path, params: { auth_login_form: { email: @user.email, password: "wrongpass" } }
+    post auth_login_path, params: { auth_login_form: { email: @user.email, password: "wrongpass" } }
 
     assert_response :unprocessable_content
     assert_nil session[:user_id]
@@ -31,7 +31,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "POST create with invalid email re-renders form" do
-    post login_path, params: { auth_login_form: { email: "missing@example.com", password: "password123" } }
+    post auth_login_path, params: { auth_login_form: { email: "missing@example.com", password: "password123" } }
 
     assert_response :unprocessable_content
     assert_nil session[:user_id]
@@ -41,11 +41,11 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "DELETE destroy logs out user" do
     # Log in first
-    post login_path, params: { auth_login_form: { email: @user.email, password: "password123" } }
+    post auth_login_path, params: { auth_login_form: { email: @user.email, password: "password123" } }
     assert_equal @user.id, session[:user_id]
 
-    delete logout_path
-    assert_redirected_to login_path
+    delete auth_logout_path
+    assert_redirected_to auth_login_path
     assert_nil session[:user_id]
   end
 end
