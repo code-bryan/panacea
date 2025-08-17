@@ -2,8 +2,6 @@ class Auth::LoginForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attr_reader :user
-
   attribute :email, :string
   attribute :password, :string
   attribute :remember_me, :boolean, default: false

@@ -1,0 +1,15 @@
+<%= render "ui/wrappers/auth", message: "No worries, we'll send you reset instructions." do %>
+  <%= form_with model: @form, url: auth_forgot_password_path, local: true, class: "flex flex-col gap-6 w-full" do |f| %>
+    <%= render "ui/form/form-field", f: f, type: :email_field, name: :email, placeholder: "you@example.com" %>
+
+    <%= render "ui/form/base-error", form: @form %>
+
+    <%= render "ui/form/submit", f: f %>
+
+    <div class="flex justify-center items-center">
+      <%= link_to "Back to Log in", auth_root_path, class: "font-medium text-blue-500 text-sm" %>
+    </div>
+  <% end %>
+
+  <%= render "ui/footer" %>
+<% end %>

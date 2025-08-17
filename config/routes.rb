@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   get "support/new"
   get "support/create"
-  get "password/new"
-  get "password/create"
-  get "pages/index"
 
   namespace :auth do
     root to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+
+    get "/forgot-password", to: "password#new"
+    post "/forgot-password", to: "password#create"
+
+    get "/reset-password", to: "password#reset"
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

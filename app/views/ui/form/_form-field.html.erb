@@ -3,12 +3,12 @@
   <% placeholder ||= nil %>
   <% type ||= :text_field %>
 
-  <% error_border = f.object.errors[name].any? ? "border-red-500" : "border-black/55" %>
+  <% error_border = f.object.errors[name].any? ? "border-red-500 bg-red-50" : "border-zinc-300 bg-zinc-50" %>
 
   <%= f.public_send(
     type, 
     name, 
     placeholder: placeholder, 
-    class: "outline-none border #{error_border} rounded-md px-4 py-2.5 text-sm"
+    class: "outline-none border #{error_border} rounded-md px-4 py-2.5 text-sm placeholder:text-zinc-400"
   ) %>
 <% end %>

@@ -1,4 +1,4 @@
-<%= render "ui/wrappers/auth" do %>
+<%= render "ui/wrappers/auth", message: "Welcome back! Please enter your details." do %>
   <%= form_with model: @form, url: auth_login_path, local: true, class: "flex flex-col gap-6 w-full" do |f| %>
     <%= render "ui/form/form-field", f: f, type: :email_field, name: :email, placeholder: "you@example.com" %>
     <%= render "ui/form/form-field", f: f, type: :password_field, name: :password, placeholder: "••••••••" %>
@@ -7,16 +7,11 @@
     <%= render "ui/form/base-error", form: @form %>
 
     <div class="w-full flex items-center justify-end">
-      <%= link_to "Forgot Password?", "#", class: "font-medium text-blue-500 text-sm" %>
+      <%= link_to "Forgot Password?", auth_forgot_password_path, class: "font-medium text-blue-500 text-sm" %>
     </div>
 
     <%= render "ui/form/submit", f: f, label: "Login" %>
   <% end %>
 
-  <footer class="mt-10 text-center">
-    <p class="text-sm">
-      Don't have an account?
-      <%= link_to "Contact support", "#", class: "font-medium text-blue-500 text-sm" %>
-    </p>
-  </footer>
+  <%= render "ui/footer", question: "Didn't receive the email?" %>
 <% end %>
