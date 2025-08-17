@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "baseUrl": "app/javascript",
+    "paths": {
+      "lib/*": ["lib/*"],
+      "controllers/*": ["controllers/*"]
+    }
+  },
+  "include": ["app/javascript/**/*"]
+}

@@ -1,4 +1,9 @@
 <% label ||= "Submit" %>
-<% btn_class ||= "px-4 py-2.5 text-sm font-semibold bg-blue-500 rounded-md text-white cursor-pointer shadow-sm" %>
+<% btn_class ||= "px-4 py-2.5 text-sm font-semibold bg-blue-500 rounded-md text-white cursor-pointer shadow-sm flex items-center justify-center gap-2.5" %>
 
-<%= f.submit label, class: btn_class %>
+<%= f.button type: "Submit", class: btn_class, data: { controller: "loading-button", action: "loading-button#start" } do %>
+  <span data-loading-button-target="label"><%= label %></span>
+  <span data-loading-button-target="spinner" class="hidden animate-spin">
+    <%= render "ui/loading" %>
+  </span>
+<% end %>

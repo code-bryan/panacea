@@ -24,7 +24,7 @@ class Auth::SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    redirect_to auth_login_path, notice: "Logged out!"
+    redirect_to auth_root_path, notice: "Logged out!"
   end
 
   private
