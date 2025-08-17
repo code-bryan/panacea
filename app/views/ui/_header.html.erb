@@ -9,11 +9,11 @@
   ] 
 %>
 
-<header class="w-full px-8 py-4 border-b border-zinc-200 flex items-center justify-between bg-white">
+<header class="w-full px-4 md:px-8 py-4 border-b border-zinc-200 flex items-center justify-between bg-white">
   <%= render "ui/logo" %>
 
   <nav>
-    <ul class="flex items-center gap-5">
+    <ul class="hidden md:flex items-center gap-5">
       <% links.each do |item| %>
         <li><%= link_to item[:text], item[:path], class: "font-semibold text-sm text-black/70" %></li>
       <% end %>

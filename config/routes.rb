@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get "support/new"
-  get "support/create"
+  resources :support, only: [ :index, :create ]
 
   namespace :auth do
     root to: "sessions#new"

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Auth::LoginFormTest < ActiveSupport::TestCase
+class Auth::ForgotPasswordTest < ActiveSupport::TestCase
   test "is invalid without email" do
     form = Auth::ForgotPasswordForm.new
     assert_not form.valid?
