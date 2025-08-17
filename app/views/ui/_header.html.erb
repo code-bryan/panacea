@@ -5,7 +5,7 @@
     { path: "#", text: "Patients" },
     { path: "#", text: "Billing" },
     { path: "#", text: "Reports" },
-    { path: "#", text: "Support" },
+    { path: support_index_path, text: "Support" },
   ] 
 %>
 
@@ -15,7 +15,8 @@
   <nav>
     <ul class="hidden md:flex items-center gap-5">
       <% links.each do |item| %>
-        <li><%= link_to item[:text], item[:path], class: "font-semibold text-sm text-black/70" %></li>
+        <% color = current_page?(item[:path]) ? "text-blue-500" : "text-black/70" %>
+        <li><%= link_to item[:text], item[:path], class: "font-semibold text-sm #{color}" %></li>
       <% end %>
 
     </ul>
