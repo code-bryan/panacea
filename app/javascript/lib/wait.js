@@ -4,10 +4,5 @@
  * @returns {Promise<void>}
  */
 export default function wait(ms = 1000) {
-  return Promise.resolve(function (resolve) {
-    const toClean = setTimeout(function () {
-      resolve()
-      clearTimeout(toClean)
-    }, ms)
-  })
+  return Promise.resolve(resolve => setTimeout(resolve, ms))
 }

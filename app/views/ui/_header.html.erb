@@ -1,0 +1,27 @@
+<% 
+  links = [
+    { path: "#", text: "Dashboard" },
+    { path: "#", text: "Calendar" },
+    { path: "#", text: "Patients" },
+    { path: "#", text: "Billing" },
+    { path: "#", text: "Reports" },
+    { path: "#", text: "Support" },
+  ] 
+%>
+
+<header class="w-full px-8 py-4 border-b border-zinc-200 flex items-center justify-between bg-white">
+  <%= render "ui/logo" %>
+
+  <nav>
+    <ul class="flex items-center gap-5">
+      <% links.each do |item| %>
+        <li><%= link_to item[:text], item[:path], class: "font-semibold text-sm text-black/70" %></li>
+      <% end %>
+
+    </ul>
+  </nav>
+
+  <div class="font-semibold rounded-full bg-blue-50 h-11 w-11 flex items-center justify-center">
+    <span class="text-blue-500 ">BR</span>
+  </div>
+</header>
