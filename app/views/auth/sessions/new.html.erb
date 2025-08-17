@@ -1,5 +1,5 @@
 <%= render "ui/wrappers/auth" do %>
-  <%= form_with model: @form, url: login_path, local: true, class: "flex flex-col gap-6 w-full" do |f| %>
+  <%= form_with model: @form, url: auth_login_path, local: true, class: "flex flex-col gap-6 w-full" do |f| %>
     <%= render "ui/form/form-field", f: f, type: :email_field, name: :email, placeholder: "you@example.com" %>
     <%= render "ui/form/form-field", f: f, type: :password_field, name: :password, placeholder: "••••••••" %>
     
