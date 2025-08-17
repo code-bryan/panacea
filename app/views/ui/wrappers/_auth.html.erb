@@ -1,9 +1,26 @@
-<div class="w-full h-full bg-amber-200 flex p-5">
+<div class="w-full h-full flex items-center justify-end p-5 bg-dental-clinic">
   <div class="h-full flex-1 hidden md:flex"></div>
   
-  <div class="h-full bg-white w-full md:w-1/2 lg:w-5/12 2xl:w-3/12 rounded-2xl p-10 flex flex-col gap-6">
+  <div class="bg-white w-full h-full flex flex-col justify-center items-center gap-2 md:w-1/2 lg:w-5/12 2xl:w-3/12 p-12  rounded-2xl shadow-2xl">
 
-    <h1 class="text-2xl font-bold">Panacea</h1>
+    <div class="flex flex-col items-center gap-4">
+      <div class="rounded-full p-3 flex items-center justify-center bg-blue-100/70">
+        <svg
+          class="size-6 text-blue-500"
+          fill="none"
+          viewBox="0 0 48 48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 6H42L36 24L42 42H6L12 24L6 6Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+      <h1 class="text-2xl font-medium tracking-tight text-black">DentalCare</h1>
+
+      <p class="text-text-secondary">Welcome back! Please enter your details.</p>
+    </div>
 
     <%= yield %>
   </div>

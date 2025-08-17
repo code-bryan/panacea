@@ -116,6 +116,9 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    heroicons-rails (1.2.0)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.2.2)
@@ -381,6 +384,7 @@ DEPENDENCIES
   capybara
   debug
   faker
+  heroicons-rails (~> 1.2)
   importmap-rails
   jbuilder
   kamal

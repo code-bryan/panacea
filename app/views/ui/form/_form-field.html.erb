@@ -1,0 +1,14 @@
+<%= render "ui/form/base-field", f: f, name: name do %>
+  <%# * Small declarations before processing %>
+  <% placeholder ||= nil %>
+  <% type ||= :text_field %>
+
+  <% error_border = f.object.errors[name].any? ? "border-red-500" : "border-black/55" %>
+
+  <%= f.public_send(
+    type, 
+    name, 
+    placeholder: placeholder, 
+    class: "outline-none border #{error_border} rounded-md px-4 py-2.5 text-sm"
+  ) %>
+<% end %>

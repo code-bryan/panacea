@@ -1,0 +1,12 @@
+<% if form.errors[:base].any? %>
+  <p data-controller="alert" data-alert-target="box"  class="bg-red-100 px-4 py-2.5 rounded-md text-sm flex items-center justify-between">
+    <span class="flex items-center gap-1 text-red-700 ">
+      <%= heroicon_tag "exclamation-circle", class: "size-5", variant: :outline %>
+      <%= form.errors[:base].first %>
+    </span>
+
+    <button type="button" class="text-black cursor-pointer" data-action="alert#close">
+      <%= heroicon_tag "x-mark", class: "size-5", variant: :outline %>
+    </button>
+  </p>
+<% end %>

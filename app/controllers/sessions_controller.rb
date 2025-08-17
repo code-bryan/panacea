@@ -5,10 +5,18 @@ class SessionsController < ApplicationController
 
   def create
     @form = Auth::LoginForm.new(login_params)
-    render :new, status: :unprocessable_content and return unless @form.valid?
+
+    if not @form.valid?
+      @form.errors.add(:base, "Email or password is invalid")
+      return render :new, status: :unprocessable_content
+    end
 
     result = Auth::LoginUseCase.call(@form)
-    render :new, status: :unprocessable_content and return unless result.success?
+
+    if not result.success?
+      @form.errors.add(:base, "Email or password is invalid")
+      return render :new, status: :unprocessable_content
+    end
 
     session[:user_id] = result.data&.id
     redirect_to root_path, notice: "Logged in!"
