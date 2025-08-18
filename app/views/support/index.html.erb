@@ -16,6 +16,27 @@
       <%= render "ui/card" do %>
         <h2 class="text-2xl font-bold text-slate-900">Send us a message</h2>
         <p class="mt-2 text-slate-500">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <%= form_with model: @form, url: support_index_path, local: true, class: "flex flex-col gap-6 mt-6" do |f| %>
+          <%= render "ui/form/form-field", f:f, name: :name, placeholder: "John Doe"  %>
+          <%= render "ui/form/form-field", f: f, type: :email_field, name: :email, placeholder: "you@example.com" %>
+          <%= render "ui/form/form-field", f:f, type: :text_area, name: :message, placeholder: "How can i help" %>
+
+          
+
+          <% if notice %>
+            <%# TODO: migrate this to a ui component %>
+            <div class="bg-green-100 p-4 rounded-md text-sm flex flex-row items-start gap-3">
+              <%= heroicon_tag "check-circle", class: "size-5 text-green-500 shrink-0", variant: :solid %>
+              <div class="flex flex-col gap-3 ">
+                <span class="text-sm font-medium text-green-800">Message sent successfully</span>
+                <span class="text-green-700"><%= notice %></span>
+              </div>            
+            </div>
+          <% end %>
+
+          <%= render "ui/form/submit",  f: f %>
+        <% end %>
       <% end %>
 
       <%= render "ui/card" do %>
@@ -23,6 +44,7 @@
           <div class="flex flex-col gap-1">
             <h2 class="text-2xl font-bold text-slate-900">Direct Contact</h2>
             <p class="mt-2 text-slate-500">For immediate assistance, please use the contact details below.</p>
+
           </div>
 
           
