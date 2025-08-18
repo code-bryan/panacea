@@ -15,7 +15,7 @@
   <nav>
     <ul class="hidden md:flex items-center gap-5">
       <% links.each do |item| %>
-        <% color = current_page?(item[:path]) ? "text-blue-500" : "text-black/70" %>
+        <% color = request.path == item[:path] ? "text-blue-500" : "text-black/70" %>
         <li><%= link_to item[:text], item[:path], class: "font-semibold text-sm #{color}" %></li>
       <% end %>
 
