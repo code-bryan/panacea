@@ -10,6 +10,7 @@ class SupportController < ApplicationController
     redirect_to support_index_url, notice: "Thank you for reaching out! Our support team will get back to you within 24 hours."
   end
 
+  private
 
   def support_params
     params.require(:support_form).permit(:name, :email, :message)
