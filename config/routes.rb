@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :support, only: [ :index, :create ]
+  resources :patients, only: [ :index, :show ]
 
   namespace :auth do
     root to: "sessions#new"

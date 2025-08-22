@@ -1,5 +1,5 @@
 class Patient < ApplicationRecord
-  extend Nameable
+  include Nameable
 
   belongs_to :company
 

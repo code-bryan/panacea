@@ -22,7 +22,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-full w-full">
+  <body class="h-full w-full <%= yield :classname %>">
     <%= yield %>
   </body>
 </html>
